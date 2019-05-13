@@ -76,6 +76,17 @@ int main() {
     }
 
 
+    //Terniary Operator
+    /* Basic Format:
+     * Variable = (condition) ? true : false;
+     * if contion is true the value will be what is in the true position and vice versa
+     */
+    //if 5 is greater than 2 the number will be 5 otherwise it will be 2
+    int largestNum = (5>2) ? 5 : 2;
+    cout << largestNum << endl;
+
+
+
 
     return 0;
 }
