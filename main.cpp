@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 int main() {
 
@@ -136,7 +136,26 @@ int main() {
     cout << randNum;
     cout << endl;
 
-    
+
+
+    // Do While Loop
+    string numberGuessed;
+    int intNumberGuessed = 0;
+
+    do{
+        cout << "Guess Number Between 1 and 10" << endl;
+
+        //This allows you to get user Input, cin is keybpoard and numberguessed is the string it will be assigned to
+        getline(cin, numberGuessed);
+
+        intNumberGuessed = stod(numberGuessed);
+
+        cout << "Number Guessed : " << numberGuessed << endl;
+    }while(intNumberGuessed != 4);
+
+    cout << "You Win" << endl;
+
+
 
     return 0;
 }
