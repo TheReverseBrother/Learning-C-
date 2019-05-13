@@ -86,7 +86,57 @@ int main() {
     cout << largestNum << endl;
 
 
+    //Arrays
 
+    //Basic arrays declare size beforehand
+    int myNumbers[5];
+    int badNumbers[5] = {4,13,14,24,34};
+
+    //Starts from zero goes to size minus one
+    cout << "Bad Number 1: "<< badNumbers[0] << endl;
+
+    //Multidimensional array
+    char myName[5][5] = {{'D','E', 'R','E','K'}, {'B','A','N','A','S'}};
+
+    cout << "Second Letter In Second Array " << myName[1][1] <<endl;
+
+    myName[0][2] = 'E';
+    cout << "New Value : " << myName[0][2];
+
+
+    //For Loops
+    for(int i = 1; i <= 10; i++)
+    {
+        cout << i << endl;
+    }
+
+    //Nested For Loops
+    for(int j = 0; j <2; j++ )
+    {
+        for(int k = 0; k<5; k++)
+        {
+            cout << myName[j][k];
+        }
+        cout << endl;
+    }
+
+    //While Loops
+
+    //THis is how you get random numbers in C++
+    int randNum = (rand()%100) + 1;
+    //Loop will keep runninng if number does not equal 100
+    while(randNum != 100)
+    {
+
+        cout << randNum << ", ";
+        randNum = (rand() % 100) +1;
+
+
+    }
+    cout << randNum;
+    cout << endl;
+
+    
 
     return 0;
 }
