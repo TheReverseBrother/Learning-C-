@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <fstream>
 using namespace std;
+
+
 int main() {
 
     //endl ends the line
@@ -155,7 +159,68 @@ int main() {
 
     cout << "You Win" << endl;
 
+    //Strings
+    string birthday = "Birthday";
+    string happy = "Happy";
 
+    cout << happy << " " << birthday << endl;
+
+    string name;
+    getline(cin, name);
+    cout << "Hello " << name << endl;
+    cout << "Size of Name : " << name.size() << endl;
+
+
+    //to create a substring
+    string fullName = "Derek Banas";
+//    string firstName = fullName.assign(fullName,0,5);
+//    cout << firstName << endl;
+
+    //find something in string
+    int lastnameIndex = fullName.find("Banas",0);
+    cout << "Last Name Index : " << lastnameIndex << endl;
+
+    //Insert somehting into string
+    fullName.insert(5," justin");
+    cout << "Insert Into String : " << fullName << endl;
+
+    //delete from string
+    fullName.erase(6,7);
+    cout << fullName <<endl;
+
+    //Vectors
+    vector <int> lotteryNumbers(10);
+    int lotteryNumArray[5] = {14,25,34,54,39};
+
+    // Only takes first 3 numbers from num array
+    lotteryNumbers.insert(lotteryNumbers.begin(),lotteryNumArray,lotteryNumArray+3);
+
+    cout << lotteryNumbers.at(2)<< endl;
+
+    //Adds to back of vector
+    lotteryNumbers.push_back(64);
+
+    //Gets Number from last can also use .front to get first
+    cout << lotteryNumbers.back() << endl;
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
