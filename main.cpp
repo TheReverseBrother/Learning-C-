@@ -4,6 +4,27 @@
 #include <fstream>
 using namespace std;
 
+//Functions
+//This function sets second num to default of 0 defaults should always come after flexible numbers
+int addNumbers(int firstNum, int secondNum = 0)
+{
+    return firstNum + secondNum;
+}
+
+int addNumbers(int firstNum, int secondNum, int thirdNum)
+{
+    return firstNum + secondNum + thirdNum;
+}
+
+//Recursive function calls itself multiple times to perform a function till meets paramneter to return number
+int getFactorial(int number)
+{
+    int sum;
+    if(number == 1) sum = 1;
+    else sum = getFactorial(number -1) * number;
+    return sum;
+}
+
 
 int main() {
 
@@ -202,6 +223,72 @@ int main() {
 
     //Gets Number from last can also use .front to get first
     cout << lotteryNumbers.back() << endl;
+
+
+
+    cout << "Functions" << endl;
+    cout << addNumbers(2)<< endl;
+    cout << addNumbers(2,5) << endl;
+
+    cout << "OverLoad Function" << endl;
+    cout << addNumbers(2,3,4) << endl;
+
+    cout << "Factorial of 3 is " << getFactorial(3) <<endl;
+
+
+    //File I/O
+    cout << endl;
+    cout << "File I/O" << endl;
+
+    string steveQuote = " A Day without sunshine is night";
+
+    ofstream writer ("SteveQuote.txt");
+    if(! writer)
+    {
+        cout << "Error Opening file" << endl;
+    }
+    else
+    {
+        //Simply call the writer like youd call cout
+        writer << steveQuote << endl;
+        writer.close();
+    }
+
+    //open another writer and append to what is already in the text file instead of creating a fresh one
+    ofstream writer2("SteveQuote.txt", ios::app);
+
+    if(! writer2)
+    {
+        cout << "Error Opening file" << endl;
+    }
+    else
+    {
+        //Simply call the writer like youd call cout
+        writer2 << "\n -Hello My Baby" << endl;
+        writer2.close();
+    }
+
+    //reading from file
+    char letter;
+    ifstream reader("SteveQuote.txt");
+
+    if(! reader)
+    {
+        cout << "Error opening file" << endl;
+    }
+    else
+    {
+        for(int i = 0; ! reader.eof(); i++)
+        {
+            reader.get(letter);
+            cout <<letter;
+        }
+
+        cout << endl;
+    }
+
+
+    //Exception handling uses try catch
 
     return 0;
 }
