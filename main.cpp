@@ -4,6 +4,110 @@
 #include <fstream>
 using namespace std;
 
+
+class Animal
+{
+    private:
+        int height;
+        int weight;
+        string name;
+
+        static int numOfAnimals;
+
+    public:
+        int getHeight(){ return height;};
+        int getWeight(){ return weight;};
+        string getName() { return name;};
+        void setHeight(int cm) { height = cm;};
+
+        void setAll(int,int,string);
+
+        Animal(int height, int weight ,string name)
+        {
+            this -> height = height;
+            this -> weight = weight;
+            this -> name = name;
+            numOfAnimals++;
+        };
+
+        //deconstructor it is called when class is no longer in scope/use or it is called
+        ~Animal()
+        {
+            cout << this->name << " Destroyed" << endl;
+        };
+
+        Animal()
+        {
+            this -> height = 0;
+            this -> weight = 0;
+            this -> name = "Susan";
+            numOfAnimals++;
+        };
+
+        static int getNumOfAnimals() { return numOfAnimals;};
+};
+
+//Superclass
+
+class Dog : public Animal
+{
+    private:
+        string sound = "Woof";
+
+    public:
+    void getSound() { cout << this->getName() << " Says " << sound << endl;};
+
+    Dog(int height, int weight, string name, string bark) : Animal(weight,height,name)
+    {
+        this -> sound = bark;
+    }
+
+};
+class Car
+{
+    private:
+        int weight;
+        string brand;
+
+        static int numOfCars;
+
+    public:
+        int getWeight() { return weight; };
+        string getBrand() {return brand; };
+    //functions can be declared in class but initialized outside even the constructor as seen here
+    Car(int, string);
+
+    ~Car();
+
+    Car();
+
+    void toString();
+};
+
+Car::Car(int weight, string brand) {
+    this -> weight = weight;
+    this -> brand = brand;
+    Car::numOfCars++;
+}
+Car::Car() {
+    this -> weight = 200;
+    this -> brand = "Skoda";
+    Car::numOfCars++;
+}
+
+Car::~Car() {
+    cout << " Car Crashed" <<endl;
+}
+void Car::toString() {
+    cout << "Brand " << this -> brand << endl;
+    cout << "Weight " << this -> weight << endl;
+}
+int Car::numOfCars = 0;
+
+
+
+int Animal::numOfAnimals = 0;
+
 //Functions
 //This function sets second num to default of 0 defaults should always come after flexible numbers
 int addNumbers(int firstNum, int secondNum = 0)
@@ -306,6 +410,74 @@ void fileIO()
 
 }
 
+void changeAge(int * age)
+{
+    cout << "I used to be " << *age << endl;
+
+    *age = 21;
+}
+
+void pointers()
+{
+    int myAge = 39;
+    char myGrade = 'A';
+
+    //Determines how many bytes data takes up
+    cout << " Size of Int " << sizeof(myAge) << endl;
+    cout << " Size of Char " << sizeof(myGrade) << endl;
+
+    //can reference where the bytes of data are stored with a reference operator which is &
+    cout << "My age is located at: " << &myAge <<endl;
+
+    //Pointers are used to have values change in functions even if the function does not return a new value
+    /**
+     *  int age = 5
+     *
+     *  addage(age)
+     *
+     *  in this main thread age is still 5 but in add age age has changed but has not been passed back eg age = addage(age)
+     */
+    //to create a pointer its using a star
+    int* agePtr = &myAge;
+
+    //Age Pointer now has reference to myAge
+    cout << "Address of pointer " << agePtr <<endl;
+
+    //You can now access the adat held at the address which will be 39
+    cout << " Data at memory address: " << *agePtr << endl;
+
+    //if you pass a pointer to a function the global value can be changed
+    changeAge(agePtr);
+    cout << myAge << endl;
+}
+
+void playingWithClasses()
+{
+    Animal hippo(200,200,"George");
+    Animal tiger;
+
+    cout << hippo.getName() << endl;
+    cout << tiger.getName() << endl;
+
+    Car micra(300, "Nissan");
+    Car shitbox;
+
+    cout << micra.getBrand() <<endl;
+    cout << shitbox.getBrand() <<endl;
+
+    micra.toString();
+
+
+    Dog frodo(200,200, "george", "WOOOOOOF");
+
+    frodo.getSound();
+
+    cout << " Number Of Animals " << Animal::getNumOfAnimals() << endl;
+}
+
+
+
+
 int main() {
 
 //    basics();
@@ -314,8 +486,9 @@ int main() {
 //    learnStrings();
 //    vectors();
 //    functionLesson();
-    fileIO();
-
+//    fileIO();
+//    pointers();
+    playingWithClasses();
     //Exception handling uses try catch
 
     return 0;
