@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include "team.h"
 using namespace std;
 
 
@@ -476,7 +477,11 @@ void playingWithClasses()
 }
 
 
-
+void teamLeague()
+{
+    team manUnited("man U", "Red Devils");
+    manUnited.chant();
+};
 
 int main() {
 
@@ -488,7 +493,8 @@ int main() {
 //    functionLesson();
 //    fileIO();
 //    pointers();
-    playingWithClasses();
+//    playingWithClasses();
+teamLeague();
     //Exception handling uses try catch
 
     return 0;
