@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include <fstream>
+
+//to include a seperate file add the header
 #include "team.h"
 using namespace std;
 
@@ -281,7 +283,7 @@ void loops()
     do{
         cout << "Guess Number Between 1 and 10" << endl;
 
-        //This allows you to get user Input, cin is keybpoard and numberguessed is the string it will be assigned to
+        //This allows you to get user Input, cin is keyboard and numberguessed is the string it will be assigned to
         getline(cin, numberGuessed);
 
         intNumberGuessed = stod(numberGuessed);
@@ -485,6 +487,59 @@ void teamLeague()
 
 int main() {
 
+    cout << " 1.Basics " <<endl;
+    cout << " 2.Terniary Operator " <<endl;
+    cout << " 3.Loops " <<endl;
+    cout << " 4.Strings " <<endl;
+    cout << " 5.Vectors " <<endl;
+    cout << " 6.Functions " <<endl;
+    cout << " 7.FileIO " <<endl;
+    cout << " 8.Pointers " <<endl;
+    cout << " 9.Classes " <<endl;
+    cout << " 10.External Files " <<endl;
+    cout << " Please Choose option" <<endl;
+    string numberGuessed;
+    int intNumberGuessed = 0;
+    getline(cin, numberGuessed);
+
+    intNumberGuessed = stod(numberGuessed);
+
+
+    switch(intNumberGuessed)
+    {
+        case 1:
+            basics();
+            break;
+        case 2:
+            terniaryOperator();
+            break;
+        case 3:
+            loops();
+            break;
+        case 4:
+            learnStrings();
+            break;
+        case 5:
+            vectors();
+            break;
+        case 6:
+            functionLesson();
+            break;
+        case 7:
+            fileIO();
+            break;
+        case 8:
+            pointers();
+            break;
+        case 9:
+            playingWithClasses();
+            break;
+        case 10:
+            teamLeague();
+            break;
+        default:
+            cout << "Not option" << endl;
+    }
 //    basics();
 //    terniaryOperator();
 //    loops();
@@ -494,7 +549,7 @@ int main() {
 //    fileIO();
 //    pointers();
 //    playingWithClasses();
-teamLeague();
+//    teamLeague();
     //Exception handling uses try catch
 
     return 0;
