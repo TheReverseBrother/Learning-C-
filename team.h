@@ -6,7 +6,7 @@
 #define LEARNING_C___TEAM_H
 #include <string>
 using namespace std;
-
+//header files allow for easy reading but also help with the compiler
 class team {
 private:
     string name;
@@ -15,6 +15,7 @@ private:
 public:
     team(string name,string phrase);
     team();
+    ~team();
     void chant();
 };
 

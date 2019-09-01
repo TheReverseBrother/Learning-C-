@@ -19,3 +19,6 @@ team::team() {
 void team::chant() {
   cout<< this -> phrase << endl;
 };
+team::~team() {
+    cout<<"Relegated" <<endl;
+};

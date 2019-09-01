@@ -5,6 +5,7 @@
 
 //to include a seperate file add the header
 #include "team.h"
+#include "mathsFunctions.cpp"
 using namespace std;
 
 
@@ -402,6 +403,7 @@ void fileIO()
     }
     else
     {
+        //for each item in the reader as long as it is not end of file(eof)
         for(int i = 0; ! reader.eof(); i++)
         {
             reader.get(letter);
@@ -483,6 +485,8 @@ void teamLeague()
 {
     team manUnited("man U", "Red Devils");
     manUnited.chant();
+    int num = addTwoNumbers(1,2);
+    cout << num << endl;
 };
 
 int main() {
