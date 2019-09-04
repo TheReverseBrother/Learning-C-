@@ -451,7 +451,7 @@ void pointers()
     //Age Pointer now has reference to myAge
     cout << "Address of pointer " << agePtr <<endl;
 
-    //You can now access the adat held at the address which will be 39
+    //You can now access the data held at the address which will be 39
     cout << " Data at memory address: " << *agePtr << endl;
 
     //if you pass a pointer to a function the global value can be changed
@@ -500,8 +500,12 @@ void externalStaticFunction()
 
 void mapsOrderedAndUnOrdered()
 {
+    //A map is a storage method in which each bit of information is identified by a key
+    //This map contains a key that is a string and information that is a string (key,info)
     map<string, string>m;
+    //the key is hello the info is world
     m["Hello"] = "World";
+    //it will print out world as it is the info matching the key hello
     cout<< m["Hello"] << endl;
 }
 
