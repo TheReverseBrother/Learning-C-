@@ -1,3 +1,4 @@
+#include <map>#include <map>#include <map>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -5,6 +6,8 @@
 
 //to include a seperate file add the header
 #include "team.h"
+
+//if no header is being used use th cpp file
 #include "mathsFunctions.cpp"
 using namespace std;
 
@@ -484,10 +487,24 @@ void playingWithClasses()
 void teamLeague()
 {
     team manUnited("man U", "Red Devils");
+    cout << "Man United Chant " << endl;
     manUnited.chant();
-    int num = addTwoNumbers(1,2);
-    cout << num << endl;
+
 };
+
+void externalStaticFunction()
+{
+    int num = addTwoNumbers(1,2);
+    cout << "Extra File with external static function result of 1 + 2 = " << num << endl;
+};
+
+void mapsOrderedAndUnOrdered()
+{
+    map<string, string>m;
+    m["Hello"] = "World";
+    cout<< m["Hello"] << endl;
+}
+
 
 int main() {
 
@@ -500,7 +517,9 @@ int main() {
     cout << " 7.FileIO " <<endl;
     cout << " 8.Pointers " <<endl;
     cout << " 9.Classes " <<endl;
-    cout << " 10.External Files " <<endl;
+    cout << " 10.External Class " <<endl;
+    cout << " 11.External Static Function " <<endl;
+    cout << " 12.Maps " <<endl;
     cout << " Please Choose option" <<endl;
     string numberGuessed;
     int intNumberGuessed = 0;
@@ -540,6 +559,12 @@ int main() {
             break;
         case 10:
             teamLeague();
+            break;
+        case 11:
+            externalStaticFunction();
+            break;
+        case 12:
+            mapsOrderedAndUnOrdered();
             break;
         default:
             cout << "Not option" << endl;
